@@ -2,4 +2,8 @@ const trackPageview = (params) => {
   console.log(`--> Pageview URL: ${params.url}`);
 };
 
-export default { trackPageview };
+const registerEvent = (data) => {
+  console.log("--> Event Registerd: ", data);
+};
+
+export default { trackPageview, registerEvent };

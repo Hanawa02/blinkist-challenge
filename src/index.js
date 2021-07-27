@@ -57,3 +57,30 @@ for (const variant of textVariants) {
     continue;
   }
 }
+
+// Handle Sign Up Link click
+
+const userTextVariant = textVariants.find((item) => item.id === textVariantId);
+
+const SIGN_UP_WAS_TRIGGERED_STORAGE_KEY = "blinkist_signUpWasTriggered";
+
+const triggerSignUpLinkClick = () => {
+  const signUpWasTriggered = window.localStorage.getItem(
+    SIGN_UP_WAS_TRIGGERED_STORAGE_KEY
+  );
+
+  if (signUpWasTriggered === null) {
+    window.localStorage.setItem(SIGN_UP_WAS_TRIGGERED_STORAGE_KEY, true);
+
+    analytics.registerEvent({
+      eventName: "signUp_click",
+      eventData: {
+        textAbTest: userTextVariant?.name,
+      },
+    });
+  }
+};
+
+const signUpLink = document.querySelector("[data-id='sign-up-link']");
+
+signUpLink.addEventListener("click", triggerSignUpLinkClick);
