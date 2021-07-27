@@ -1,11 +1,21 @@
+import analytics from "./analytics.js";
 import "./styles.css";
 
-// Type your code here
+/* 
+  We will use the local storage to keep track of the triggers already executed,
+  since the values do not expire unless the cache is cleaned. 
+*/
 
-const trackPageview = (params) => {
-  console.log(`--> Pageview URL: ${params.url}`);
-};
+const PAGE_VIEW_TRIGGERED_STORAGE_KEY = "blinkst_pageViewTriggered";
 
-trackPageview({
-  url: window.location.href
-});
+const userAlreadyTriggeredPageView = window.localStorage.getItem(
+  PAGE_VIEW_TRIGGERED_STORAGE_KEY
+);
+
+if (userAlreadyTriggeredPageView === null) {
+  window.localStorage.setItem(PAGE_VIEW_TRIGGERED_STORAGE_KEY, true);
+
+  analytics.trackPageview({
+    url: window.location.href,
+  });
+}
