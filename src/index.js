@@ -24,21 +24,36 @@ if (userAlreadyTriggeredPageView === null) {
 }
 
 // Apply AB-Tests
-const TEXT_AB_TEST_STORAGE_KEY = "blinkst_textVariantId";
+
+const textVariants = [
+  {
+    id: 0,
+    name: "control-variant",
+    elementVariantIdentifier: "text-control-variant",
+  },
+  {
+    id: 1,
+    name: "test-variant",
+    elementVariantIdentifier: "text-test-variant",
+  },
+];
+
+const TEXT_AB_TEST_STORAGE_KEY = "blinkist_textVariantId";
 
 const userTextVariantId = window.localStorage.getItem(TEXT_AB_TEST_STORAGE_KEY);
 
 let textVariantId = +userTextVariantId;
 
 if (userTextVariantId === null) {
-  textVariantId = helperFunctions.generateAbTestVariationId();
+  textVariantId = helperFunctions.generateAbTestVariationId(textVariants);
   window.localStorage.setItem(TEXT_AB_TEST_STORAGE_KEY, textVariantId);
 }
 
-const CONTROL_VARIANT_ID = 0;
-
-if (textVariantId === CONTROL_VARIANT_ID) {
-  hideElement("[data-ab-test='text-test-variant']");
-} else {
-  hideElement("[data-ab-test='text-control-variant']");
+for (const variant of textVariants) {
+  if (textVariantId !== variant.id) {
+    helperFunctions.hideElement(
+      `[data-ab-test='${variant.elementVariantIdentifier}']`
+    );
+    return;
+  }
 }
