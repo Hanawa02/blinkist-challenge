@@ -1,6 +1,95 @@
 /* Type your code here */
+:root {
+  --primary-color: #2cde80;
+  --secondary-color: #002f54;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
-    font-family: sans-serif;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.page-title {
+  background-color: var(--primary-color);
+  margin: 0;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: var(--secondary-color);
+}
+
+.main-image {
+  width: 100%;
+}
+
+.text-content {
+  padding: 0rem 1rem;
+}
+
+.main-text {
+  font-size: 1.5rem;
+  padding: 2rem 0;
+  color: var(--secondary-color);
+}
+
+.signup-text {
+  font-size: 1.2rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.main-text,
+.signup-text {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.signup-link {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+@media (min-width: 640px) {
+  .main-text,
+  .signup-text {
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
-  
+}
+
+@media (min-width: 768px) {
+  main {
+    padding: 0 3rem;
+  }
+
+  .article-content {
+    display: flex;
+    padding-top: 2rem;
+  }
+
+  .main-image,
+  .main-text {
+    width: 50%;
+  }
+
+  .main-text {
+    padding-top: 0;
+    margin-right: 0;
+  }
+
+  .signup-text {
+    margin: 2rem 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  main {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

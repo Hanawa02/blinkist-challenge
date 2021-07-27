@@ -7,31 +7,30 @@
   </head>
 
   <body>
-    <!-- Feel free to modify markup -->
+    <header>
+      <h1 class="page-title">Check out the Blinkist app</h1>
+    </header>
+    <main>
+      <div class="article-content">
+        <img
+          src="images/hero_image.jpg"
+          alt="Check out the Blinkist app"
+          class="main-image"
+        />
+        <div class="main-text" data-ab-test="text-control-variant">
+          Meet the app that revolutionized reading.
+        </div>
 
-    <h1>Check out the Blinkist app</h1>
-
-    <img
-      width="300"
-      src="images/hero_image.jpg"
-      alt="Check out the Blinkist app"
-    />
-
-    <div data-ab-test="text-control-variant">
-      <!-- Control variation -->
-      Meet the app that revolutionized reading.
-    </div>
-
-    <div data-ab-test="text-test-variant">
-      <!-- Test variation -->
-      Meet the app that has 18 million users.
-    </div>
-
-    <div>
-      Thanks a lot for reading the article!
-      <a href="/signup" data-id="sign-up-link">SIGN UP</a> for Blinkist.
-    </div>
-
+        <div class="main-text" data-ab-test="text-test-variant">
+          Meet the app that has 18 million users.
+        </div>
+      </div>
+      <div class="signup-text">
+        Thanks a lot for reading the article!
+        <a class="signup-link" href="/signup" data-id="sign-up-link">SIGN UP</a>
+        for Blinkist.
+      </div>
+    </main>
     <script src="src/index.js"></script>
   </body>
 </html>
