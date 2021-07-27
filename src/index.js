@@ -54,6 +54,6 @@ for (const variant of textVariants) {
     helperFunctions.hideElement(
       `[data-ab-test='${variant.elementVariantIdentifier}']`
     );
-    return;
+    continue;
   }
 }
