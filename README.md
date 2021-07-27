@@ -20,9 +20,11 @@ An AB-Test is applied to the main text of the article, with the main information
 
 ## Analytics
 
+Considering that the distribution of the users to the AB-test variants is done before the navigation, we may have more users that receives one variant thant the other, to allow better analysis of the data, we send the variant selected also on the Page View.
+
 ### Page View
 
-An analytics event is triggered on Page View, limited to one time per user, sending the accessed url as data for the event.
+An analytics event is triggered on Page View, limited to one time per user, sending the accessed url and the AB-test data as data for the events.
 We use the local storage of the browser to identify if the Page View event was already triggered.
 
 ### Sign Up Link Click

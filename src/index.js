@@ -7,22 +7,6 @@ import "./styles.css";
   since the values do not expire unless the cache is cleaned. 
 */
 
-// Trigger Page View
-
-const PAGE_VIEW_TRIGGERED_STORAGE_KEY = "blinkist_pageViewTriggered";
-
-const userAlreadyTriggeredPageView = window.localStorage.getItem(
-  PAGE_VIEW_TRIGGERED_STORAGE_KEY
-);
-
-if (userAlreadyTriggeredPageView === null) {
-  window.localStorage.setItem(PAGE_VIEW_TRIGGERED_STORAGE_KEY, true);
-
-  analytics.trackPageview({
-    url: window.location.href,
-  });
-}
-
 // Apply AB-Tests
 
 const textVariants = [
@@ -58,9 +42,30 @@ for (const variant of textVariants) {
   }
 }
 
-// Handle Sign Up Link click
+// Trigger Page View
+
+const PAGE_VIEW_TRIGGERED_STORAGE_KEY = "blinkist_pageViewTriggered";
+
+const userAlreadyTriggeredPageView = window.localStorage.getItem(
+  PAGE_VIEW_TRIGGERED_STORAGE_KEY
+);
 
 const userTextVariant = textVariants.find((item) => item.id === textVariantId);
+
+if (userAlreadyTriggeredPageView === null) {
+  window.localStorage.setItem(PAGE_VIEW_TRIGGERED_STORAGE_KEY, true);
+
+  analytics.trackPageview({
+    url: window.location.href,
+    data: {
+      abTests: {
+        textAbTest: userTextVariant?.name,
+      },
+    },
+  });
+}
+
+// Handle Sign Up Link click
 
 const SIGN_UP_WAS_TRIGGERED_STORAGE_KEY = "blinkist_signUpWasTriggered";
 

@@ -1,5 +1,5 @@
 const trackPageview = (params) => {
-  console.log(`--> Pageview URL: ${params.url}`);
+  console.log(`--> Pageview URL: ${params.url}`, params.data);
 };
 
 const registerEvent = (data) => {
