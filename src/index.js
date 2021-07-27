@@ -7,7 +7,9 @@ import "./styles.css";
   since the values do not expire unless the cache is cleaned. 
 */
 
-const PAGE_VIEW_TRIGGERED_STORAGE_KEY = "blinkst_pageViewTriggered";
+// Trigger Page View
+
+const PAGE_VIEW_TRIGGERED_STORAGE_KEY = "blinkist_pageViewTriggered";
 
 const userAlreadyTriggeredPageView = window.localStorage.getItem(
   PAGE_VIEW_TRIGGERED_STORAGE_KEY
