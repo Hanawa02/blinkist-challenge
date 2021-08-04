@@ -34,9 +34,7 @@ if (userTextVariantId === null) {
 }
 
 for (const variant of textVariants) {
-  console.log(variant, textVariantId, userTextVariantId);
   if (variant.id === textVariantId) {
-    console.log("found something!");
     helperFunctions.removeHiddenClass(
       `[data-ab-test='${variant.elementVariantIdentifier}']`
     );

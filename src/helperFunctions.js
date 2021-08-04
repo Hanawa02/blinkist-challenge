@@ -11,7 +11,6 @@ const hideElement = (elementQuery) => {
 };
 
 const removeHiddenClass = (elementQuery) => {
-  console.log("hid the element:", elementQuery);
   const selectedElement = document.querySelector(elementQuery);
   selectedElement.classList.remove("hidden");
 };
