@@ -10,4 +10,10 @@ const hideElement = (elementQuery) => {
   selectedElement.style.display = "none";
 };
 
-export default { generateAbTestVariationId, hideElement };
+const removeHiddenClass = (elementQuery) => {
+  console.log("hid the element:", elementQuery);
+  const selectedElement = document.querySelector(elementQuery);
+  selectedElement.classList.remove("hidden");
+};
+
+export default { generateAbTestVariationId, hideElement, removeHiddenClass };

@@ -36,6 +36,10 @@ body {
   color: var(--secondary-color);
 }
 
+.hidden {
+  display: none;
+}
+
 .signup-text {
   font-size: 1.2rem;
   padding: 1rem 0;

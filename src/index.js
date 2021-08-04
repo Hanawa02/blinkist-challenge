@@ -34,11 +34,13 @@ if (userTextVariantId === null) {
 }
 
 for (const variant of textVariants) {
-  if (textVariantId !== variant.id) {
-    helperFunctions.hideElement(
+  console.log(variant, textVariantId, userTextVariantId);
+  if (variant.id === textVariantId) {
+    console.log("found something!");
+    helperFunctions.removeHiddenClass(
       `[data-ab-test='${variant.elementVariantIdentifier}']`
     );
-    continue;
+    break;
   }
 }
 
