@@ -14,11 +14,13 @@ const textVariants = [
     id: 0,
     name: "control-variant",
     elementVariantIdentifier: "text-control-variant",
+    percentageOfUsers: 35,
   },
   {
     id: 1,
     name: "test-variant",
     elementVariantIdentifier: "text-test-variant",
+    percentageOfUsers: 40,
   },
 ];
 
@@ -29,7 +31,7 @@ const userTextVariantId = window.localStorage.getItem(TEXT_AB_TEST_STORAGE_KEY);
 let textVariantId = +userTextVariantId;
 
 if (userTextVariantId === null) {
-  textVariantId = helperFunctions.generateAbTestVariationId(textVariants);
+  textVariantId = helperFunctions.selectAbTestVariant(textVariants);
   window.localStorage.setItem(TEXT_AB_TEST_STORAGE_KEY, textVariantId);
 }
 
